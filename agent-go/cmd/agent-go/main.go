@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"log/slog"
 	"time"
 
@@ -10,9 +9,9 @@ import (
 )
 
 func main() {
-	log.Println("Feeds Updating...")
+	slog.Info("Feeds Updating...")
 
-	CVEApiKey := ""
+	CVEApiKey := "be7c24bd-4d29-4867-9e20-d5c8c07b8e17  "
 	err := fileops.Update(CVEApiKey, time.Now())
 	if err != nil {
 		slog.Error(err.Error())

@@ -8,9 +8,10 @@ import (
 )
 
 func saveToFile[T any](ts time.Time, filename string, values []T) error {
-	timestamp := ts.Format("2006-01-02_15-04-05")
+	// timestamp := ts.Format("2006-01-02_15-04-05")
 
-	folderName := fmt.Sprintf("../datas/data-%s", timestamp)
+	// folderName := fmt.Sprintf("../../../datas/data-%s", timestamp)
+	folderName := "../../../datas"
 	err := os.MkdirAll(folderName, 0755)
 
 	if err != nil {
