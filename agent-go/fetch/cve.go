@@ -13,11 +13,12 @@ import (
 
 func FetchCVE(apiKey string, app *app.App) (int, time.Duration, error) {
 	now := time.Now().UTC()
-	start := now.Add(-24 * time.Hour)
+	start := now.Add(-12 * time.Hour)
 
 	const layout = "2006-01-02T15:04:05.000"
 
 	url := fmt.Sprintf("https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=2000&pubStartDate=%s&pubEndDate=%s", start.Format(layout), now.Format(layout))
+	fmt.Println(url)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

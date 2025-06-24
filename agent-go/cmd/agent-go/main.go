@@ -11,7 +11,7 @@ import (
 func main() {
 	slog.Info("Feeds Updating...")
 
-	CVEApiKey := "be7c24bd-4d29-4867-9e20-d5c8c07b8e17  "
+	CVEApiKey := ""
 	err := fileops.Update(CVEApiKey, time.Now())
 	if err != nil {
 		slog.Error(err.Error())
