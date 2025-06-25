@@ -44,5 +44,24 @@ func InitDB() (*sql.DB, error) {
 		return nil, fmt.Errorf("an error occurred while creating CVE table")
 	}
 
+	queryURLhaus := `CREATE TABLE IF NOT EXISTS urlhaus(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	urlhaus_id TEXT UNIQUE,
+	date_added TEXT,
+	url TEXT,
+	url_status TEXT,
+	last_online TEXT,
+	threat TEXT,
+	tags TEXT,
+	urlhaus_link TEXT,
+	reporter TEXT
+	)`
+	// cwes TEXT
+
+	_, err = db.Exec(queryURLhaus)
+	if err != nil {
+		return nil, fmt.Errorf("an error occurred while creating URLhaus table")
+	}
+
 	return db, nil
 }

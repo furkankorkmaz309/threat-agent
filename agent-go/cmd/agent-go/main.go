@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/furkankorkmaz309/threat-agent/fileops"
+	"github.com/furkankorkmaz309/threat-agent/internal/fileops"
 )
 
 func main() {
