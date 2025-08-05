@@ -2,14 +2,13 @@ package fileops
 
 import (
 	"log/slog"
-	"time"
 
 	"github.com/furkankorkmaz309/threat-agent/internal/app"
 	"github.com/furkankorkmaz309/threat-agent/internal/db"
 	"github.com/furkankorkmaz309/threat-agent/internal/fetch"
 )
 
-func Update(CVEApiKey string, ts time.Time) error {
+func Update(CVEApiKey string) error {
 	db, err := db.InitDB()
 	if err != nil {
 		return err

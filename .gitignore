@@ -1,0 +1,19 @@
+# Ortam dosyası
+.env
+
+# SQLite veritabanı
+/datas
+
+# Derlenmiş Go binary'leri
+*.exe
+*.out
+*.test
+/bin/
+
+# OS ve IDE geçici dosyaları
+.DS_Store
+*.swp
+*.swo
+
+# VSCode ayar dosyası (tercihe bağlı)
+.vscode/

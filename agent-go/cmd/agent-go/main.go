@@ -3,16 +3,28 @@ package main
 import (
 	"fmt"
 	"log/slog"
-	"time"
+	"os"
 
 	"github.com/furkankorkmaz309/threat-agent/internal/fileops"
+	"github.com/joho/godotenv"
 )
 
 func main() {
 	slog.Info("Feeds Updating...")
 
-	CVEApiKey := ""
-	err := fileops.Update(CVEApiKey, time.Now())
+	err := godotenv.Load("../../../.env")
+	if err != nil {
+		slog.Error("No .env file found")
+		return
+	}
+
+	CVEApiKey := os.Getenv("CVE_KEY")
+	if CVEApiKey == "" {
+		slog.Error("cve key is empty")
+		return
+	}
+
+	err = fileops.Update(CVEApiKey)
 	if err != nil {
 		slog.Error(err.Error())
 		return

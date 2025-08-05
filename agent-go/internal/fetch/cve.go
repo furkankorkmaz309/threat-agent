@@ -13,7 +13,7 @@ import (
 
 func FetchCVE(apiKey string, app *app.App) (string, error) {
 	now := time.Now().UTC()
-	start := now.Add(-12 * time.Hour)
+	start := now.Add(-240 * time.Hour)
 
 	const layout = "2006-01-02T15:04:05.000"
 
